@@ -1,0 +1,25 @@
+@import "styles/color-scheme.scss";
+
+.react-share__ShareButton{
+    padding: 5px !important;
+}
+
+.fa-circle {
+    width: 1.2em !important;
+    padding: 0.1em;
+}
+
+.not-circled-container {
+    padding: 0.25em 0.3em;
+}
+
+.fa-circle-container {
+    padding: 0.25em 0.3em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px #888;
+}
+
+.share-button-hr{
+    margin-left: 0;
+    margin-right: 20%;
+}

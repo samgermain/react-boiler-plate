@@ -1,0 +1,85 @@
+@import 'styles/bootstrap-plus/variables.scss';
+
+/* Next & previous buttons */
+.prev-cont, .next-cont{
+  cursor: pointer;
+  height: 100%;
+  position: absolute !important;
+  display: flex;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+}
+
+.prev, .next {
+  width: 100%;
+  margin: 20px;
+  padding: 16px;
+  color: white !important;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 1.5s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.slide-0 {
+  grid-area: u;
+}
+
+.slide-1 {
+  grid-area: d;
+}
+
+.slide-2{
+  grid-area: t;
+}
+
+/* Position the "next button" to the right */
+.next-cont {
+  right: 0;
+}
+
+.next {
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev-cont:hover .prev, .next-cont:hover .next {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active-dot, .dot:hover {
+  background-color: #717171;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, 'md')) {
+
+  .prev {
+    margin-left: 0px;
+  }  
+
+  .slide-grid{
+    width: 90%;
+    grid-gap: 15px;
+  }
+
+  .next {
+    margin-right: 0px;
+  }
+
+}

@@ -1,0 +1,40 @@
+$primary: #49eee8;
+$secondary:  #be7bd7;
+$light: #F5E6CC;
+$dark: #212529;
+$info: #ffc8ad;
+$success: #198754;
+$danger: #dc3545;
+$warning: #fbd846;
+$link-color: #007bff;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+);
+
+$twitter: #00acee;
+$facebook: #3b5998;
+$pinterest: #c8232c;
+$instagram: #cd486b;
+$linkedin: #0e76a8;
+$whatsapp: #075e54;
+$reddit: #FF4500;
+$email: $primary;
+
+$fa: (
+    'twitter': $twitter,
+    'facebook': $facebook,
+    'pinterest': $pinterest,
+    'instagram': $instagram,
+    'linkedin': $linkedin,
+    'whatsapp': $whatsapp,
+    'reddit': $reddit,
+    'email': $email,
+);

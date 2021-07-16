@@ -1,0 +1,29 @@
+@mixin flex-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+.flex-center-row{
+  @include flex-center(row)
+}
+
+.flex-center-col{
+  @include flex-center(column)
+}
+
+//classes that display their children in a row if the screen is at least $bp-pixels wide
+@each $bp-name, $bp-pixels in $grid-breakpoints {   //looping through xs, sm, md, lg, xl and their pixel values
+  
+  .flex-center-#{$bp-name}-row {  //names like flex-center-md-row
+    @include flex-center(column)
+  }
+
+  @media (min-width: $bp-pixels){ //only works if the screen is wider than this
+    .flex-center-#{$bp-name}-row {  //names like flex-center-md-row
+        flex-direction: row;
+    }
+  }
+}
+

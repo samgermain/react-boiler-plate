@@ -1,0 +1,10 @@
+publish = "dist/"
+
+#default build command
+command = "npm run build"
+
+# For internal routing like react router
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200

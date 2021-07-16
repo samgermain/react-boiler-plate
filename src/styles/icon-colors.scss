@@ -1,0 +1,25 @@
+//Icon Colors
+.fa-reddit, .fa-reddit-alien{
+    color: map-get($fa, reddit);
+}
+.fa-twitter{
+    color: map-get($fa, twitter);
+} 
+.fa-facebook, .fa-facebook-f{
+    color: map-get($fa, facebook);
+}
+.fa-pinterest{
+    color: map-get($fa, pinterest);
+}
+.fa-linkedin, .fa-linkedin-in{
+    color: map-get($fa, linkedin);
+}
+.fa-instagram{
+    color: map-get($fa, instagram);
+}
+.fa-whatsapp{
+    color: map-get($fa, whatsapp);
+}
+.fa-envelope-open{
+    color: map-get($fa, email);
+}

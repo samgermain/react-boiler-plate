@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+@each $bp-name, $bp-pixels in $grid-breakpoints {   //looping through xs, sm, md, lg, xl and their pixel values
+  
+    @media (min-width: $bp-pixels){ //only works if the screen is wider than this
+        .d-#{$bp-name}-unset {  //names like flex-center-md-row
+            display: unset !important;
+        }
+    }
+}
+

@@ -1,0 +1,44 @@
+blockquote {
+  display: flex;
+  padding: 0 20px;
+}
+
+/* Blockquote main style */
+blockquote > p {
+   position: relative;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 800;
+   padding: 30px 0;
+   width: 100%;
+   max-width: 500px;
+   z-index: 1;
+   margin: 20px auto !important;
+   align-self: center;
+   border-top: solid 1px;
+   border-bottom: solid 1px;
+   position: relative;
+   color: $gray-800;
+   font-size: 25px !important;
+   text-align: center;
+   font-weight: 800;
+   line-height: 1.2;
+   margin: 0;
+}
+
+/* Blockquote right double quotes */
+blockquote > p:after {
+   position: absolute;
+   content: "”";
+   color: $gray-800;
+   font-size: 4rem;
+   line-height: 0;
+   bottom: -20px;
+   right: 30px;
+}
+
+/* increase header size after 600px */
+@media all and (min-width: 600px) {
+  blockquote > p {
+       font-size: 60px;
+  }
+}

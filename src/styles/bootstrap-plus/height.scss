@@ -1,0 +1,9 @@
+@import '../bootstrap-plus/variables.scss';
+
+$j : 100;
+@while $j <= 900 {
+  .h-#{$j}px {              //names like h-1h, h-2h (for height: 100px, height: 200px)
+    height: #{"#{$j}px"};   
+  }
+  $j : $j + 100;
+}

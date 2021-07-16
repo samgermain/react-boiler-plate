@@ -1,0 +1,8 @@
+node_modules
+dist
+.DS_store
+.vscode/settings.json
+*.sw*
+.env
+.cache
+.eslintcache

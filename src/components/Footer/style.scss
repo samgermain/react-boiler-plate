@@ -1,0 +1,11 @@
+@import 'styles/bootstrap-plus/variables.scss';
+
+.social-icon{
+    margin: 10px;
+}
+
+@media (max-width: map-get($grid-breakpoints, 'sm')){
+    .social-icon{
+        margin: 5px;
+    }
+}

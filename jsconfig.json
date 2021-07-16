@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es6",
+        "baseUrl": "./",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "paths": {
+            "components": ["./src/components"],
+            "components/*": ["./src/components/*"],
+            "data": ["./src/data"],
+            "data/*": ["./src/data/*"],
+            "hooks": ["./src/hooks"],
+            "hooks/*": ["./src/hooks/*"],
+            "images": ["./src/assets/images"],
+            "images/*": ["./src/assets/images/*"],
+            "pages": ["./src/assets/pages"],
+            "pages/*": ["./src/assets/pages/*"],
+            "src": ["./src/src"],
+            "src/*": ["./src/src/*"],
+            "styles": ["./src/styles"],
+            "styles/*": ["./src/styles/*"],
+            "svg": ["./src/assets/images/svg"],
+            "svg/*": ["./src/assets/images/svg/*"],
+            "util": ["./src/util"],
+            "util/*": ["./src/util/*"],
+            "videos": ["./src/assets/videos"],
+            "videos/*": ["./src/assets/videos/*"],
+            "webp": ["./src/assets/images/webp"],
+            "webp/*": ["./src/assets/images/webp/*"],
+        },
+        "checkJs": true
+    }
+}
