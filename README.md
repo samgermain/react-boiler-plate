@@ -1,7 +1,8 @@
-# Front-End Starter
+# React Boiler Plate (Front end starter)
+
+[Live Demo][https://react-boiler-plate.netlify.app/]
 
 This starter has a basic setup for
-
 
 - webpack
 - .eslintrc.js
