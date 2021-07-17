@@ -72,7 +72,7 @@ const Footer = ({ className = "", ...props }) => {
               <Image
                 webp={faceWebp}
                 other={face}
-                style={{ width: 30 }}
+                style={{ width: 30, height: 30 }}
                 alt="Picture of Sam Germain"
               />
             </a>
