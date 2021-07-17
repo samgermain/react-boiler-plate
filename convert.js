@@ -27,6 +27,4 @@ const convert = function (filename, width, height, newName) {
     (err, info) => {};
 };
 
-convert("icon-192x192.png", 192);
-convert("icon-512x512.png", 512);
-convert("icon-192x192.png", 60, 60, "icon-60x60");
+convert("face-icon.png", 60, 60);
