@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 ("use strict");
 module.exports = {
@@ -16,5 +17,12 @@ module.exports = {
     extensions: require("./extensions.config"),
     alias: require("./aliases.config"),
   },
-  plugins: require("./plugins.config"),
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production"),
+      },
+    }),
+    ...require("./plugins.config"),
+  ],
 };

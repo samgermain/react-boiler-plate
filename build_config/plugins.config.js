@@ -13,11 +13,6 @@ const desc =
   "Full Stack Developer - B.Sc. in Computer Science - B.ScHn in Bioinformatics";
 
 module.exports = [
-  new webpack.DefinePlugin({
-    "process.env": {
-      NODE_ENV: JSON.stringify("development"),
-    },
-  }),
   new HtmlWebpackPlugin({
     template: "./entry_points/index.html",
     filename: "./index.html",
