@@ -9,8 +9,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import face from "images/icon-60x60.png";
-import faceWebp from "webp/icon-60x60.webp";
+import face from "images/face-icon.png";
+import faceWebp from "webp/face-icon.webp";
 
 import { links, metadata } from "data";
 import { FooterNav } from "components/Nav";
@@ -53,6 +53,7 @@ const Footer = ({ className = "", ...props }) => {
     <footer
       className={`position-relative bg-light overflow-hidden shadow-2 p-3 flex-center-col ${className}`}
       style={styles.footer}
+      {...props}
     >
       <FooterNav links={links.internal.nav} />
 
