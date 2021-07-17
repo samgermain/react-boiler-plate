@@ -13,12 +13,14 @@ export default () => (
   <Provider store={store}>
     <Router>
       <Header />
-      <Suspense fallback={<Loading />}>
-        <Route path="/404" exact component={Four} />
-        <Route path="/about" exact component={About} />
-        <Route path="/contact" exact component={Contact} />
-        <Route path="/" exact component={Home} /> {/* keep this one last */}
-      </Suspense>
+      <main>
+        <Suspense fallback={<Loading />}>
+          <Route path="/404" exact component={Four} />
+          <Route path="/about" exact component={About} />
+          <Route path="/contact" exact component={Contact} />
+          <Route path="/" exact component={Home} /> {/* keep this one last */}
+        </Suspense>
+      </main>
       <Footer />
     </Router>
   </Provider>

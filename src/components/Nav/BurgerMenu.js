@@ -27,6 +27,7 @@ const BurgerMenu = ({
       id="burgerMenu"
       style={style}
       aria-hidden={!open}
+      hidden={!open}
       className={`shadow-2 text-left flex-center-md-row position-absolute ${className} `}
     >
       {children}

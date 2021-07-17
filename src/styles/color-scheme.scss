@@ -6,7 +6,7 @@ $info: #ffc8ad;
 $success: #198754;
 $danger: #dc3545;
 $warning: #fbd846;
-$link-color: #007bff;
+$link-color: darken(#007bff, 10%);
 
 $theme-colors: (
     "primary": $primary,

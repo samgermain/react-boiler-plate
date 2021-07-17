@@ -53,6 +53,7 @@ module.exports = [
   }),
   new GenerateSW({
     // option: 'value'
+    maximumFileSizeToCacheInBytes: 4e6,
   }),
   new CopyPlugin({
     patterns: [{ from: "robots.txt", to: "robots.txt" }],
