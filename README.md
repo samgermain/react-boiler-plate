@@ -46,4 +46,4 @@ Meanwhile, you will get alerted whenever there is something 'bad' in your code b
 
 ## Lighthouse
 
-![Lighthouse Score](https://imgur.com/a/SB0AzMk)
+[Lighthouse Score](https://imgur.com/a/SB0AzMk)
