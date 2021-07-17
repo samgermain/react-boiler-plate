@@ -43,3 +43,7 @@ All new images must be converted inside `./convert.js`.
 Run `npm i` to get all the things installed.
 
 Meanwhile, you will get alerted whenever there is something 'bad' in your code based on the aforementioned 👆🏽 linting. 
+
+## Lighthouse
+
+[Lighthouse Score](https://imgur.com/a/SB0AzMk)
