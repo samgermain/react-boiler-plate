@@ -37,6 +37,9 @@ Use of this starter template assumes that you have a 'complete dev environment' 
 
 ## How To Use
 
+All new images must be converted inside `./convert.js`. 
+`npm` must be restarted in development mode for the new images to be converted
+
 Run `npm i` to get all the things installed.
 
 Meanwhile, you will get alerted whenever there is something 'bad' in your code based on the aforementioned 👆🏽 linting. 

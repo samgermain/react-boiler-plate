@@ -73,7 +73,7 @@ export default ({ className = "", ...props }) => {
       {...props}
     >
       {["Name", "Email", "Subject", "Message"].map((label) => (
-        <div className="row w-100 my-2">
+        <div key={label} className="row w-100 my-2">
           <label className="col-sm-2 h5 ">{label}</label>
           <div className="col-sm-10">
             <FormControl label={label} />

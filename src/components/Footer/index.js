@@ -9,8 +9,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import face from "images/icon-192x192.png";
-import faceWebp from "webp/icon-192x192.webp";
+import face from "images/icon-60x60.png";
+import faceWebp from "webp/icon-60x60.webp";
 
 import { links, metadata } from "data";
 import { FooterNav } from "components/Nav";
@@ -41,8 +41,8 @@ const Footer = ({ className = "", ...props }) => {
     },
   };
 
-  const SocialIcon = ({ icon, link }) => (
-    <a href={link}>
+  const SocialIcon = ({ icon, link, ...props }) => (
+    <a href={link} {...props}>
       <FontAwesomeIcon className="social-icon" icon={icon} />
     </a>
   );
@@ -83,12 +83,28 @@ const Footer = ({ className = "", ...props }) => {
         style={styles.socialIcons}
       >
         <div>
-          <SocialIcon link={facebook} icon={faFacebookF} />
-          <SocialIcon link={instagram} icon={faInstagram} />
+          <SocialIcon
+            aria-label="Facebook social media page"
+            link={facebook}
+            icon={faFacebookF}
+          />
+          <SocialIcon
+            aria-label="Instagram social media page"
+            link={instagram}
+            icon={faInstagram}
+          />
         </div>
         <div>
-          <SocialIcon link={linkedIn} icon={faLinkedinIn} />
-          <SocialIcon link={twitter} icon={faTwitter} />
+          <SocialIcon
+            aria-label="LinkedIn social media page"
+            link={linkedIn}
+            icon={faLinkedinIn}
+          />
+          <SocialIcon
+            aria-label="Twitter social media page"
+            link={twitter}
+            icon={faTwitter}
+          />
         </div>
       </div>
     </footer>
