@@ -5,10 +5,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const CopyPlugin = require("copy-webpack-plugin");
-const { GenerateSW } = require("workbox-webpack-plugin");
+const { InjectManifest } = require("workbox-webpack-plugin");
 
 const icon192 = "src/assets/images/icon-192x192.png";
 const icon512 = "src/assets/images/icon-512x512.png";
+const favicon = "src/assets/images/src/assets/images/favicon.ico";
 const desc =
   "Full Stack Developer - B.Sc. in Computer Science - B.ScHn in Bioinformatics";
 
@@ -16,7 +17,7 @@ module.exports = [
   new HtmlWebpackPlugin({
     template: "./entry_points/index.html",
     filename: "./index.html",
-    favicon: "./src/assets/images/svg/react-icon.svg",
+    favicon: "./src/assets/images/favicon.ico",
   }),
   new MiniCssExtractPlugin({
     filename: "[name].css",
@@ -46,9 +47,9 @@ module.exports = [
     display: "standalone",
     prefer_related_applications: false,
   }),
-  new GenerateSW({
-    // option: 'value'
+  new InjectManifest({
     maximumFileSizeToCacheInBytes: 4e6,
+    swSrc: "./src/service-worker.js",
   }),
   new CopyPlugin({
     patterns: [{ from: "robots.txt", to: "robots.txt" }],
