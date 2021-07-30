@@ -1,3 +1,4 @@
+//TODO: Most of this code is probably unnecessary, remove ost of it
 const path = require("path");
 const { InjectManifest } = require("workbox-webpack-plugin");
 const moduleFileExtensions = [
