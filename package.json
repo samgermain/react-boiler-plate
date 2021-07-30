@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node convert && webpack serve --mode development --env development --config ./build_config/webpack.config.js --host 0.0.0.0",
-    "build": "webpack --config ./build_config/webpack.prod.config.js"
+    "build": "webpack --config ./build_config/webpack.prod.config.js",
+    "serve": "serve -s dist"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -76,6 +77,8 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
     "axios": "^0.21.1",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-preset-react": "^6.24.1",
@@ -83,6 +86,7 @@
     "bootstrap": "5",
     "emailjs-com": "^2.6.4",
     "extract-loader": "^5.1.0",
+    "global": "^4.4.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-device-detect": "^1.17.0",
@@ -97,7 +101,14 @@
     "react-scroll": "^1.8.2",
     "react-share": "^4.4.0",
     "redux": "^4.1.0",
+    "serve": "^12.0.0",
     "styled-components": "^5.3.0",
+    "web-vitals": "^2.1.0",
+    "workbox-core": "^6.1.5",
+    "workbox-expiration": "^6.1.5",
+    "workbox-precaching": "^6.1.5",
+    "workbox-routing": "^6.1.5",
+    "workbox-strategies": "^6.1.5",
     "workbox-webpack-plugin": "^6.1.5"
   }
 }
