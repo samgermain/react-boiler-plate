@@ -9,7 +9,6 @@ const { InjectManifest } = require("workbox-webpack-plugin");
 
 const icon192 = "src/assets/images/icon-192x192.png";
 const icon512 = "src/assets/images/icon-512x512.png";
-const favicon = "src/assets/images/src/assets/images/favicon.ico";
 const desc =
   "Full Stack Developer - B.Sc. in Computer Science - B.ScHn in Bioinformatics";
 
@@ -17,7 +16,7 @@ module.exports = [
   new HtmlWebpackPlugin({
     template: "./entry_points/index.html",
     filename: "./index.html",
-    favicon: "./src/assets/images/favicon.ico",
+    favicon: "./src/assets/images/svg/react-icon.svg",
   }),
   new MiniCssExtractPlugin({
     filename: "[name].css",
@@ -49,7 +48,8 @@ module.exports = [
   }),
   new InjectManifest({
     maximumFileSizeToCacheInBytes: 4e6,
-    swSrc: "./src/service-worker.js",
+    swSrc: path.resolve(__dirname, "/service-worker.js"),
+    swDest: "/service-worker.js",
   }),
   new CopyPlugin({
     patterns: [{ from: "robots.txt", to: "robots.txt" }],
