@@ -3,11 +3,11 @@ import "./style.scss";
 import { Head, Carousel, ShareButtons } from "components";
 
 const metadata = {
-  description: "Web page description",
-  title: "Home",
+  description: "About page",
+  title: "About",
   shareImage:
     "https://suddenlysask.com/static/cc701b5ed9329f7c62ace15b5dfec7e6/d00b9/cat.webp",
-  path: "/",
+  path: "/about",
 };
 
 export default () => (
