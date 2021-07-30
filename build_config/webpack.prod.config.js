@@ -21,7 +21,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production"),
-        PUBLIC_URL: "https://react-boiler-plate.netlify.app",
+        PUBLIC_URL: "https://react-boiler-plate.netlify.app/",
       },
     }),
     ...require("./plugins.config"),
