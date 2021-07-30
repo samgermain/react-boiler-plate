@@ -48,7 +48,8 @@ module.exports = [
   }),
   new InjectManifest({
     maximumFileSizeToCacheInBytes: 4e6,
-    swSrc: "./src/service-worker.js",
+    swSrc: path.resolve(__dirname, "/service-worker.js"),
+    swDest: "/service-worker.js",
   }),
   new CopyPlugin({
     patterns: [{ from: "robots.txt", to: "robots.txt" }],
