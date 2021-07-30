@@ -5,19 +5,19 @@
 This starter has a basic setup for
 
 - webpack
-- .eslintrc.js
-- .prettierignore
-- netlify.toml
-- postcss.config.js
-- robots.txt
-- .babelrc
-- .vscode/extensions.json (Recommended extensions)
+- `.eslintrc.js`
+- `.prettierignore`
+- `netlify.toml`
+- `postcss.config.js`
+- `robots.txt`
+- `.babelrc`
+- `.vscode/extensions.json` (Recommended extensions)
 - redux
-- an email form with EmailJS
-- image optimization and conversion to Webp using sharp
-- bootstrap
-- react-router
-- react-helmet
+- an email form with **EmailJS**
+- image optimization and conversion to Webp using `sharp`
+- `bootstrap`
+- `react-router`
+- `react-helmet`
 - page header
 - page footer
 - social media share buttons
@@ -34,6 +34,7 @@ Use of this starter template assumes that you have a 'complete dev environment' 
 - [Stylelint](https://stylelint.io/) for CSS linting. I am including the 'standard [configuration](https://stylelint.io/user-guide/configure)' with some additional rules to keep things alphabetical, indented with `2` spaces, etc.
 - [`husky`](https://www.npmjs.com/package/husky) will check over code quality with the linters b4 there is a successful `commit`.
 - Various VS Code 'settings' and 'extensions.' **Look in the bottom right when you open this up in VS Code to install them.**
+- image optimization using **Sharp** (Size must be specified in `convert.js`)
 
 ## How To Use
 
@@ -42,7 +43,18 @@ All new images must be converted inside `./convert.js`.
 
 Run `npm i` to get all the things installed.
 
-Meanwhile, you will get alerted whenever there is something 'bad' in your code based on the aforementioned 👆🏽 linting. 
+### Run in development mode
+`npm start`
+### Build and run production mode
+`serve` must be installed with `npm install -g serve`
+
+After serve is installed you can build with 
+
+`npm run-script build`
+
+and then serve this build with
+
+`npm run-script serve`
 
 ## Lighthouse
 
