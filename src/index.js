@@ -1,8 +1,8 @@
 import React from "react";
 import "styles/style.scss";
 import ReactDOM from "react-dom";
-import * as serviceWorkerRegistration from "../serviceWorkerRegistration";
-import reportWebVitals from "../reportWebVitals";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
 
 import App from "./App";
 

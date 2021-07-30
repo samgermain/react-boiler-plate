@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const CopyPlugin = require("copy-webpack-plugin");
-const { InjectManifest } = require("workbox-webpack-plugin");
 
 const icon192 = "src/assets/images/icon-192x192.png";
 const icon512 = "src/assets/images/icon-512x512.png";
@@ -45,11 +44,6 @@ module.exports = [
     description: desc,
     display: "standalone",
     prefer_related_applications: false,
-  }),
-  new InjectManifest({
-    maximumFileSizeToCacheInBytes: 4e6,
-    swSrc: path.resolve(__dirname, "/service-worker.js"),
-    swDest: "/service-worker.js",
   }),
   new CopyPlugin({
     patterns: [{ from: "robots.txt", to: "robots.txt" }],

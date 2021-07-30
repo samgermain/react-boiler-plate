@@ -12,6 +12,8 @@ const metadata = {
 export default () => (
   <div className="w-100 h-100 flex-center-row">
     <Head metadata={metadata} />
-    <div className="w-100 flex-center-row ">{/* <ReactLogo /> */}</div>
+    <div className="w-100 flex-center-row ">
+      <ReactLogo />
+    </div>
   </div>
 );
