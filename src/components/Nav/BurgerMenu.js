@@ -1,7 +1,5 @@
 import React from "react";
 
-import Burger from "./Burger";
-
 const BurgerMenu = ({
   open,
   dropdown,

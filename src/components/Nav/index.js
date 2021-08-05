@@ -17,7 +17,7 @@ const PageLinks = ({ links, className = "" }) => {
 
   useEffect(() => {
     setUrlPath(url.parse(window.location.href).pathname);
-  }, [window]);
+  }, [window.location.href]);
 
   return (
     <>
