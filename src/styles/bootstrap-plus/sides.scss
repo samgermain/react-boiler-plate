@@ -1,0 +1,9 @@
+@import "./variables.scss";
+
+@each $edge, $edge-name in $edges {
+    @if $edge != "x" and $edge != "y" {
+        .#{$edge}-0 {
+            #{$edge-name}: 0;
+        }
+    }
+}
