@@ -8,6 +8,10 @@
         "baseUrl": "./",
         "moduleResolution": "node",
         "esModuleInterop": true,
+        "typeRoots": [
+            "node_modules/@types",
+            "src/types"
+        ],
         "paths": {
             "components": ["./src/components"],
             "components/*": ["./src/components/*"],
@@ -32,6 +36,7 @@
             "webp": ["./src/assets/images/webp"],
             "webp/*": ["./src/assets/images/webp/*"],
         },
-        "checkJs": true
+        "checkJs": true,
+        
     }
 }
