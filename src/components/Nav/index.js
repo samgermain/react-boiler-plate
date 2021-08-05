@@ -6,63 +6,53 @@ import ReactLogo from "svg/react-icon.svg";
 import { useOnClickOutside } from "hooks";
 import Burger from "./Burger";
 import BurgerMenu from "./BurgerMenu";
+import url from 'url';
 //import ScrollLink from './ScrollLink';
 
 const stickyHeight = 60; //Height of the sticky navbar
 
 const PageLinks = ({ links, className = "" }) => {
-  //TODO: const page = get the page page
-  //Then add this to classname ${text === page && 'active'}`
+  const [urlPath, setUrlPath] = useState("")
+  
+  useEffect(() => {  
+    const urlParams = url.parse(window.location.href)
+    setUrlPath(urlParams.pathname)
+  }, [window?.location?.href]);
 
   return (
     <>
-      {Object.keys(links).map((key) => (
-        <Link
-          to={links[key]}
-          key={key}
-          className={`
-            text-nowrap 
-            nav-link 
-            cursor-pointer
-            h4
-            mx-3
-            p-0
-            ${className}
-          `}
-        >
-          {key}
-        </Link>
-      ))}
+      {Object.keys(links).map((key) => {
+        console.log({urlPath, key})
+        
+        const active = (
+          urlPath == key || 
+          urlPath == "/" && key == "home"
+        );
+
+        return (
+          <Link
+            to={links[key]}
+            key={key}
+            className={`
+              text-nowrap 
+              nav-link 
+              cursor-pointer
+              h4
+              mx-3
+              p-0
+              ${active ? 'active' : ""}
+              ${className}
+            `}
+          >
+            {key}
+          </Link>
+        )
+      })}
     </>
   );
 };
 
-const Layout = ({ sticky, children }) => {
-  const [isHidden, setIsHidden] = useState(true);
-  const [open, setOpen] = useState(false);
-  const node = useRef();
-
-  const hideBar = () => {
-    setOpen(false);
-    const pos = window.pageYOffset;
-    pos > 100 ? setIsHidden(false) : setIsHidden(true); //TODO: Dynamic position instead of 150
-  };
-
-  useEffect(() => {
-    hideBar();
-    window.addEventListener("scroll", hideBar, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", hideBar);
-    };
-  }, []);
-
-  const style = {
-    ...(sticky && styles.stickyNav),
-    ...(sticky && isHidden && styles.hide),
-    ...styles.navBar,
-  };
-
-  const NavBrand = () => {
+const NavBrand = () => {
     //TODO: on home page scroll to top instead of linking there
     // if (page === "home"){
     //   return (
@@ -76,7 +66,7 @@ const Layout = ({ sticky, children }) => {
     //   )
     // }else{
     return (
-      <Link to="/" className="navbar-brand h-100">
+      <Link to="/" className="navbar-brand p-0 h-100">
         <ReactLogo
           className="h-100"
           title="React Logo"
@@ -87,12 +77,48 @@ const Layout = ({ sticky, children }) => {
     // };
   };
 
+const Layout = ({ sticky, children }) => {
+  const [isHidden, setIsHidden] = useState(true);
+  const [open, setOpen] = useState(false);
+  const node = useRef();  
+
+  const hideBar = () => {
+    setOpen(false);
+    const pos = window.pageYOffset;
+    pos > 100 ? setIsHidden(false) : setIsHidden(true); //TODO: Dynamic position instead of 150
+  };
+
+  useEffect(() => {        
+
+    //Hides and reveals the sticky navbar
+    hideBar();
+    window.addEventListener("scroll", hideBar, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", hideBar);
+    };
+  }, []);
+
+  const style = {
+    top: sticky && isHidden && -stickyHeight,
+    height: stickyHeight,
+    transition: ".3s"
+  };
+
   useOnClickOutside(node, () => setOpen(false));
 
   return (
     <div ref={node}>
       <div
-        className={`shadow-1 ${sticky && !isHidden && "position-fixed"}`}
+        className={`
+          d-flex 
+          w-100 
+          p-0 
+          my-auto 
+          z-index-4 
+          shadow-1 
+          t-0
+          ${sticky && !isHidden && "position-fixed"}
+        `}
         style={style}
       >
         <BurgerMenu
@@ -105,7 +131,7 @@ const Layout = ({ sticky, children }) => {
         </BurgerMenu>
         <nav
           style={style}
-          className="navbar navbar-expand-md navbar-light bg-light px-4"
+          className="navbar w-100 bg-light px-4"
         >
           <NavBrand />
           <div
@@ -126,7 +152,7 @@ const Layout = ({ sticky, children }) => {
 };
 
 export const FooterNav = ({ links }) => (
-  <nav className="footer-nav">
+  <nav className="footer-nav nav nav-pills">
     <PageLinks links={links} />
   </nav>
 );
@@ -137,24 +163,3 @@ export default ({ links, sticky = "" }) => (
   </Layout>
 );
 
-const styles = {
-  hide: {
-    top: -stickyHeight,
-  },
-  navBar: {
-    display: "flex",
-    width: "100%",
-    padding: 0,
-    height: 80,
-    marginTop: "auto",
-    marginBottom: "auto",
-    zIndex: 4,
-  },
-
-  stickyNav: {
-    height: stickyHeight,
-    top: 0,
-    zIndex: 4,
-    transition: ".3s",
-  },
-};

@@ -36,8 +36,10 @@ $spacing: (
 }
 
 @each $edge, $edge-name in $edges {
-    .m#{$edge}-auto {
-        margin-#{$edge-name}: auto;
+    @if $edge != "x" and $edge != "y" {
+        .m#{$edge}-auto {
+            margin-#{$edge-name}: auto;
+        }
     }
 }
 
