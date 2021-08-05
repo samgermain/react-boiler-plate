@@ -1,7 +1,12 @@
 const purgecss = require('@fullhuman/postcss-purgecss');
 
 module.exports = {
-    plugins: {
-        'cssnano': {}
-    }
-}
+    // plugins: {   //Works
+    //     'cssnano': {},
+    // }
+    plugins: [      //Doesn't work, all css removed
+        purgecss({
+            content: ['./src/**/*.html']
+        }),
+    ]
+};
