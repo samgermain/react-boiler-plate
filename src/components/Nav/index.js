@@ -7,25 +7,24 @@ import { useOnClickOutside } from "hooks";
 import Burger from "./Burger";
 import BurgerMenu from "./BurgerMenu";
 import url from 'url';
-//import ScrollLink from './ScrollLink';
+import ScrollLink from './ScrollLink';
 
 const stickyHeight = 60; //Height of the sticky navbar
 
 const PageLinks = ({ links, className = "" }) => {
-  const [urlPath, setUrlPath] = useState("")
   
-  useEffect(() => {  
-    const urlParams = url.parse(window.location.href)
-    setUrlPath(urlParams.pathname)
-  }, [window?.location?.href]);
+  const [urlPath, setUrlPath] = useState("");
+
+  useEffect(() => {
+    setUrlPath(url.parse(window.location.href).pathname);
+  }, [window]);
 
   return (
     <>
       {Object.keys(links).map((key) => {
-        console.log({urlPath, key})
         
         const active = (
-          urlPath == key || 
+          urlPath == `/${key}` || 
           urlPath == "/" && key == "home"
         );
 
@@ -52,30 +51,27 @@ const PageLinks = ({ links, className = "" }) => {
   );
 };
 
-const NavBrand = () => {
-    //TODO: on home page scroll to top instead of linking there
-    // if (page === "home"){
-    //   return (
-    //     <ScrollLink
-    //       style={style}
-    //       to="root"
-    //       className="cursor-pointer mx-3 p-0"
-    //     >
-    //       <NavBrandImage />
-    //     </ScrollLink>
-    //   )
-    // }else{
+const NavBrand = ({children}) => {
+  
+  const urlPath = url.parse(window.location.href).pathname;
+    
+  if (urlPath === "/home" || urlPath == "/"){
+    return (
+      <ScrollLink
+        to="root"
+        className="cursor-pointer mx-3 p-0 h-100"
+      >
+        {children}
+      </ScrollLink>
+    )
+  }else{
     return (
       <Link to="/" className="navbar-brand p-0 h-100">
-        <ReactLogo
-          className="h-100"
-          title="React Logo"
-          alt="SVG of the react logo"
-        />
+        {children}
       </Link>
     );
-    // };
   };
+};
 
 const Layout = ({ sticky, children }) => {
   const [isHidden, setIsHidden] = useState(true);
@@ -133,7 +129,13 @@ const Layout = ({ sticky, children }) => {
           style={style}
           className="navbar w-100 bg-light px-4"
         >
-          <NavBrand />
+          <NavBrand>
+            <ReactLogo
+              className="h-100"
+              title="React Logo"
+              alt="SVG of the react logo"
+            />
+          </NavBrand>
           <div
             className={`d-md-flex d-none nav nav-pills mr-3 ml-auto`}
             data-spy="affix"
