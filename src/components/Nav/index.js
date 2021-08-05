@@ -6,13 +6,12 @@ import ReactLogo from "svg/react-icon.svg";
 import { useOnClickOutside } from "hooks";
 import Burger from "./Burger";
 import BurgerMenu from "./BurgerMenu";
-import url from 'url';
-import ScrollLink from './ScrollLink';
+import url from "url";
+import ScrollLink from "./ScrollLink";
 
 const stickyHeight = 60; //Height of the sticky navbar
 
 const PageLinks = ({ links, className = "" }) => {
-  
   const [urlPath, setUrlPath] = useState("");
 
   useEffect(() => {
@@ -22,11 +21,8 @@ const PageLinks = ({ links, className = "" }) => {
   return (
     <>
       {Object.keys(links).map((key) => {
-        
-        const active = (
-          urlPath == `/${key}` || 
-          urlPath == "/" && key == "home"
-        );
+        const active =
+          urlPath == `/${key}` || (urlPath == "/" && key == "home");
 
         return (
           <Link
@@ -39,44 +35,40 @@ const PageLinks = ({ links, className = "" }) => {
               h4
               mx-3
               p-0
-              ${active ? 'active' : ""}
+              ${active ? "active" : ""}
               ${className}
             `}
           >
             {key}
           </Link>
-        )
+        );
       })}
     </>
   );
 };
 
-const NavBrand = ({children}) => {
-  
+const NavBrand = ({ children }) => {
   const urlPath = url.parse(window.location.href).pathname;
-    
-  if (urlPath === "/home" || urlPath == "/"){
+
+  if (urlPath === "/home" || urlPath == "/") {
     return (
-      <ScrollLink
-        to="root"
-        className="cursor-pointer mx-3 p-0 h-100"
-      >
+      <ScrollLink to="root" className="cursor-pointer mx-3 p-0 h-100">
         {children}
       </ScrollLink>
-    )
-  }else{
+    );
+  } else {
     return (
       <Link to="/" className="navbar-brand p-0 h-100">
         {children}
       </Link>
     );
-  };
+  }
 };
 
 const Layout = ({ sticky, children }) => {
   const [isHidden, setIsHidden] = useState(true);
   const [open, setOpen] = useState(false);
-  const node = useRef();  
+  const node = useRef();
 
   const hideBar = () => {
     setOpen(false);
@@ -84,8 +76,7 @@ const Layout = ({ sticky, children }) => {
     pos > 100 ? setIsHidden(false) : setIsHidden(true); //TODO: Dynamic position instead of 150
   };
 
-  useEffect(() => {        
-
+  useEffect(() => {
     //Hides and reveals the sticky navbar
     hideBar();
     window.addEventListener("scroll", hideBar, { passive: true });
@@ -97,7 +88,7 @@ const Layout = ({ sticky, children }) => {
   const style = {
     top: sticky && isHidden && -stickyHeight,
     height: stickyHeight,
-    transition: ".3s"
+    transition: ".3s",
   };
 
   useOnClickOutside(node, () => setOpen(false));
@@ -125,10 +116,7 @@ const Layout = ({ sticky, children }) => {
         >
           {children}
         </BurgerMenu>
-        <nav
-          style={style}
-          className="navbar w-100 bg-light px-4"
-        >
+        <nav style={style} className="navbar w-100 bg-light px-4">
           <NavBrand>
             <ReactLogo
               className="h-100"
@@ -164,4 +152,3 @@ export default ({ links, sticky = "" }) => (
     <PageLinks links={links} />
   </Layout>
 );
-
