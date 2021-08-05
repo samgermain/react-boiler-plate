@@ -17,29 +17,6 @@ import { FooterNav } from "components/Nav";
 import { Image } from "components";
 
 const Footer = ({ className = "", ...props }) => {
-  const styles = {
-    bottomBlurb: {
-      marginTop: "20px",
-      fontSize: "0.7em",
-    },
-    copyright: {
-      padding: "10px",
-    },
-
-    icon: {
-      width: 25,
-    },
-    socialIcons: {
-      display: "flex",
-      justifyContent: "flex-end",
-      alignItems: "center",
-      right: 0,
-      top: "50%",
-    },
-    tag: {
-      height: 40,
-    },
-  };
 
   const SocialIcon = ({ icon, link, ...props }) => (
     <a href={link} {...props}>
@@ -52,37 +29,30 @@ const Footer = ({ className = "", ...props }) => {
   return (
     <footer
       className={`position-relative bg-light overflow-hidden shadow-2 p-3 flex-center-col ${className}`}
-      style={styles.footer}
       {...props}
     >
       <FooterNav links={links.internal.nav} />
 
-      <div
-        className={`flex-center-col ${className}`}
-        style={styles.bottomBlurb}
-      >
-        <span
-          style={styles.copyright}
-        >{`© Me ${new Date().getFullYear()}`}</span>
-        <span className="flex-center-row" style={styles.tag}>
-          <span>
-            Website designed by
-            <a href="https://samgermain.com">
-              {" Sam Germain"}
-              <Image
-                webp={faceWebp}
-                other={face}
-                style={{ width: 30, height: 30 }}
-                alt="Picture of Sam Germain"
-              />
-            </a>
-          </span>
+      <div className={`flex-center-col h6 mt-4 ${className}`}>
+        <span className="p-3">{`© Me ${new Date().getFullYear()}`}</span>
+        <span className="flex-center-row">
+          <span>Website designed by</span>
+          <div style={{width: 3}}></div>
+          <a 
+            className="flex-center-row" 
+            href={metadata.authorLink}
+          >
+            {metadata.author}
+            <Image
+              webp={faceWebp}
+              other={face}
+              className="icon"
+              alt="Picture of Sam Germain"
+            />
+          </a>
         </span>
       </div>
-      <div
-        className="flex-center-sm-row mr-sm-5 mr-2 position-absolute"
-        style={styles.socialIcons}
-      >
+      <div className="mr-sm-5 mr-2 social-icons">
         <div>
           <SocialIcon
             aria-label="Facebook social media page"

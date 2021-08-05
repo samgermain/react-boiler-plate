@@ -14,8 +14,7 @@ import {
   faTwitter,
   faLinkedinIn,
   faRedditAlien,
-  faWhatsapp,
-  IconDefinition,
+  faWhatsapp
 } from "@fortawesome/free-brands-svg-icons";
 
 import { faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
