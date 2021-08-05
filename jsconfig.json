@@ -8,10 +8,6 @@
         "baseUrl": "./",
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "typeRoots": [
-            "node_modules/@types",
-            "src/types"
-        ],
         "paths": {
             "components": ["./src/components"],
             "components/*": ["./src/components/*"],
