@@ -6,7 +6,8 @@ module.exports = {
     // }
     plugins: [      //Doesn't work, all css removed
         purgecss({
-            content: ['./src/**/*.html']
+            content: ['./src/**/*.html'],
+            defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
         }),
     ]
 };
