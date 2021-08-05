@@ -5,16 +5,15 @@ import "./style.scss";
  * A slide show of images, with arrows at the side, and dots to select the image underneath
  */
 export default ({ triple = false, children, className = "", ...props }) => {
-
   const [index, setIndex] = useState(0);
   const interval = 4000;
   let timer;
-  
+
   const [slides, setSlides] = triple
     ? useState(children.slice(0, 3))
     : useState([children[0]]);
 
-  const increment = function(slideN){
+  const increment = function (slideN) {
     const idx = index + slideN;
     if (idx >= children.length) {
       setIndex(0);
@@ -54,37 +53,32 @@ export default ({ triple = false, children, className = "", ...props }) => {
   );
 
   return (
-      <div 
-        id="Carousel"
-        className={`position-relative ${className}`}
-        {...props}
-      >
-        <div 
-          className={`
+    <div id="Carousel" className={`position-relative ${className}`} {...props}>
+      <div
+        className={`
             overflow-hidden 
             m-auto
             ${triple ? "triple-carousel" : "carousel"}
           `}
-        >
-          {slides.map((slide, cnt) => (
-            <div key={cnt} className={`slide-${cnt}`}>
-              {slide}
-            </div>
-          ))}
-        </div>
-        <Cont dir="prev" inc={-1} char="&#10094;" />
-        <Cont dir="next" inc={1} char="&#10095;" />
-        <br />
-        <div className="flex-center-row w-100">
-          {children.map((entry, dotIndex) => (
-            <div
-              key={dotIndex}
-              className={`dot ${index === dotIndex && "active-dot"}`}
-              onClick={() => setIndex(dotIndex)}
-            ></div>
-          ))}
-        </div>
+      >
+        {slides.map((slide, cnt) => (
+          <div key={cnt} className={`slide-${cnt}`}>
+            {slide}
+          </div>
+        ))}
       </div>
-
+      <Cont dir="prev" inc={-1} char="&#10094;" />
+      <Cont dir="next" inc={1} char="&#10095;" />
+      <br />
+      <div className="flex-center-row w-100">
+        {children.map((entry, dotIndex) => (
+          <div
+            key={dotIndex}
+            className={`dot ${index === dotIndex && "active-dot"}`}
+            onClick={() => setIndex(dotIndex)}
+          ></div>
+        ))}
+      </div>
+    </div>
   );
 };

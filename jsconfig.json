@@ -17,10 +17,10 @@
             "hooks/*": ["./src/hooks/*"],
             "images": ["./src/assets/images"],
             "images/*": ["./src/assets/images/*"],
-            "pages": ["./src/assets/pages"],
-            "pages/*": ["./src/assets/pages/*"],
-            "src": ["./src/src"],
-            "src/*": ["./src/src/*"],
+            "pages": ["./src/pages"],
+            "pages/*": ["./src/pages/*"],
+            "src": ["./src"],
+            "src/*": ["./src/*"],
             "styles": ["./src/styles"],
             "styles/*": ["./src/styles/*"],
             "svg": ["./src/assets/images/svg"],
@@ -32,6 +32,6 @@
             "webp": ["./src/assets/images/webp"],
             "webp/*": ["./src/assets/images/webp/*"],
         },
-        "checkJs": true
+        "checkJs": true,   
     }
 }

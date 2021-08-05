@@ -17,7 +17,6 @@ import { FooterNav } from "components/Nav";
 import { Image } from "components";
 
 const Footer = ({ className = "", ...props }) => {
-
   const SocialIcon = ({ icon, link, ...props }) => (
     <a href={link} {...props}>
       <FontAwesomeIcon className="social-icon" icon={icon} />
@@ -37,11 +36,8 @@ const Footer = ({ className = "", ...props }) => {
         <span className="p-3">{`© Me ${new Date().getFullYear()}`}</span>
         <span className="flex-center-row">
           <span>Website designed by</span>
-          <div style={{width: 3}}></div>
-          <a 
-            className="flex-center-row" 
-            href={metadata.authorLink}
-          >
+          <div style={{ width: 3 }}></div>
+          <a className="flex-center-row" href={metadata.authorLink}>
             {metadata.author}
             <Image
               webp={faceWebp}
