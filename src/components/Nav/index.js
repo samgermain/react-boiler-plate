@@ -63,10 +63,6 @@ const Layout = ({ sticky, children }) => {
   };
 
   const NavBrand = () => {
-    const style = sticky
-      ? { ...styles.navBrand, ...styles.navBrandSticky }
-      : styles.navBrand;
-
     //TODO: on home page scroll to top instead of linking there
     // if (page === "home"){
     //   return (
@@ -80,7 +76,7 @@ const Layout = ({ sticky, children }) => {
     //   )
     // }else{
     return (
-      <Link style={style} to={"/"} className="navbar-brand h-100">
+      <Link to="/" className="navbar-brand h-100">
         <ReactLogo
           className="h-100"
           title="React Logo"
@@ -112,13 +108,12 @@ const Layout = ({ sticky, children }) => {
           className="navbar navbar-expand-md navbar-light bg-light px-4"
         >
           <NavBrand />
-          <nav
-            className={`d-md-flex d-none nav nav-pills`}
+          <div
+            className={`d-md-flex d-none nav nav-pills mr-3 ml-auto`}
             data-spy="affix"
-            style={styles.nav}
           >
             {children}
-          </nav>
+          </div>
           <Burger
             className={`d-md-none my-auto`}
             open={open}
@@ -146,10 +141,6 @@ const styles = {
   hide: {
     top: -stickyHeight,
   },
-  nav: {
-    marginLeft: "auto",
-    marginRight: 20,
-  },
   navBar: {
     display: "flex",
     width: "100%",
@@ -159,19 +150,7 @@ const styles = {
     marginBottom: "auto",
     zIndex: 4,
   },
-  navBrand: {
-    width: 40,
-    marginTop: "2px",
-    marginBottom: "2px",
-  },
-  navBrandSticky: {
-    width: 40,
-    marginTop: "0",
-    marginBottom: "0",
-  },
-  navShadow: {
-    boxShadow: "0 10px 15px -12px rgba(0,0,0,0.25)",
-  },
+
   stickyNav: {
     height: stickyHeight,
     top: 0,

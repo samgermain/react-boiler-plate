@@ -1,69 +1,83 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 $box-model: (
-    'm': 'margin',
-    'b': 'border',
-    'p': 'padding'
+    "m": "margin",
+    "b": "border",
+    "p": "padding",
 );
 
 $edges: (
-    'l': 'left',
-    'r': 'right',
-    'b': 'bottom',
-    't': 'top',
-    'x': none,
-    'y': none
+    "l": "left",
+    "r": "right",
+    "b": "bottom",
+    "t": "top",
+    "x": none,
+    "y": none,
 );
 
 $spacing: (
-    'p5':$spacer * .125,
-    1: $spacer * .25,
-    2: $spacer * .5,
+    "p5": $spacer * 0.125,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
     3: $spacer,
     4: $spacer * 1.5,
     5: $spacer * 3,
 );
 
 //TODO: Add ml, mr, mt, mb, pl, pr, pt, pb
-.m-p5 {    //stands for point5
-    margin: ($spacer * .125) !important;
-}
-  
-.p-p5 {    //stands for point5
-    padding: ($spacer * .125) !important;
+.m-p5 {
+    //stands for point5
+    margin: ($spacer * 0.125) !important;
 }
 
-@each $bp-name, $bp-pixels in $grid-breakpoints {   //looping through xs, sm, md, lg, xl and their pixel values 
+.p-p5 {
+    //stands for point5
+    padding: ($spacer * 0.125) !important;
+}
 
-    @media (min-width: $bp-pixels){ //only works if the screen is wider than this
-
-        .m-#{$bp-name}-p5 {    //stands for point5
-            margin: ($spacer * .125) !important;
-        }
-
-        .p-#{$bp-name}-p5 {    //stands for point5
-            padding: ($spacer * .125) !important;
-        }
-
+@each $edge, $edge-name in $edges {
+    .m#{$edge}-auto {
+        margin-#{$edge-name}: auto;
     }
 }
 
-@each $bp-name, $bp-pixels in $grid-breakpoints {   //looping through xs, sm, md, lg, xl and their pixel values 
-    @each $edge, $edge-name in $edges{
-        @each $box, $box-name in $box-model{
-            @media (min-width: $bp-pixels){ //only works if the screen is wider than this
-                .#{$box}#{edge}-#{$bp-name}-p5 {    //stands for point5
+@each $bp-name, $bp-pixels in $grid-breakpoints {
+    //looping through xs, sm, md, lg, xl and their pixel values
+
+    @media (min-width: $bp-pixels) {
+        //only works if the screen is wider than this
+
+        .m-#{$bp-name}-p5 {
+            //stands for point5
+            margin: ($spacer * 0.125) !important;
+        }
+
+        .p-#{$bp-name}-p5 {
+            //stands for point5
+            padding: ($spacer * 0.125) !important;
+        }
+    }
+}
+
+@each $bp-name, $bp-pixels in $grid-breakpoints {
+    //looping through xs, sm, md, lg, xl and their pixel values
+    @each $edge, $edge-name in $edges {
+        @each $box, $box-name in $box-model {
+            @media (min-width: $bp-pixels) {
+                //only works if the screen is wider than this
+                .#{$box}#{edge}-#{$bp-name}-p5 {
+                    //stands for point5
                     @if $edge == "x" {
-                        #{"#{$box-name}-left"} : map-get($spacing, "p5") !important;
-                        #{"#{$box-name}-right"} : map-get($spacing, "p5") !important;
-                    } @else if $edge == "y"{
-                        #{"#{$box-name}-top"} : map-get($spacing, "p5") !important;
-                        #{"#{$box-name}-bottom"} : map-get($spacing, "p5") !important;
-                    }@else{
-                        #{"#{$box-name}-#{$edge-name}"} : map-get($spacing, "p5") !important;
+                        #{"#{$box-name}-left"}: map-get($spacing, "p5") !important;
+                        #{"#{$box-name}-right"}: map-get($spacing, "p5") !important;
+                    } @else if $edge == "y" {
+                        #{"#{$box-name}-top"}: map-get($spacing, "p5") !important;
+                        #{"#{$box-name}-bottom"}: map-get($spacing, "p5") !important;
+                    } @else {
+                        #{"#{$box-name}-#{$edge-name}"}: map-get($spacing, "p5") !important;
                     }
                 }
             }
-        }       
+        }
     }
 }
