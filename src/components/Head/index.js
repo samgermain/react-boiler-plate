@@ -6,7 +6,7 @@
  */
 
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { metadata as siteMetadata } from "data";
 
 export default ({ metadata }) => {

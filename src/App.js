@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -10,18 +11,20 @@ const Home = lazy(() => import("pages/Home"));
 import { store } from "src/redux";
 
 export default () => (
-  <Provider store={store}>
-    <Router>
-      <Header />
-      <main>
-        <Suspense fallback={<Loading />}>
-          <Route path="/404" exact component={Four} />
-          <Route path="/about" exact component={About} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/" exact component={Home} /> {/* keep this one last */}
-        </Suspense>
-      </main>
-      <Footer />
-    </Router>
-  </Provider>
+  <HelmetProvider>
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <main>
+          <Suspense fallback={<Loading />}>
+            <Route path="/404" exact component={Four} />
+            <Route path="/about" exact component={About} />
+            <Route path="/contact" exact component={Contact} />
+            <Route path="/" exact component={Home} /> {/* keep this one last */}
+          </Suspense>
+        </main>
+        <Footer />
+      </Router>
+    </Provider>
+  </HelmetProvider>
 );
