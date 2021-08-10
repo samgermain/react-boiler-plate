@@ -2,7 +2,7 @@ import React from "react";
 
 const BurgerMenu = ({
   open,
-  dropdown,
+  dropdown = true,
   navHeight = 60,
   className = "",
   children,
@@ -16,8 +16,7 @@ const BurgerMenu = ({
     transform: open ? `translate${axis}0)` : `translate${axis}100%)`,
     top: 0,
     right: 0,
-    transition: "height 0.3s ease-in-out, transform 0.3s ease-in-out",
-    zIndex: 4,
+    transition: "all 0.3s linear",
   };
 
   return (
@@ -25,8 +24,15 @@ const BurgerMenu = ({
       id="burgerMenu"
       style={style}
       aria-hidden={!open}
-      hidden={!open}
-      className={`shadow-2 text-left flex-center-md-row position-absolute ${className} `}
+      // hidden={!open}
+      className={`
+        shadow-2 
+        text-left 
+        flex-center-md-row 
+        position-absolute 
+        z-index-4
+        ${className}
+      `}
     >
       {children}
     </nav>

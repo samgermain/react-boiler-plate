@@ -101,7 +101,6 @@ const Layout = ({ sticky, children }) => {
           w-100 
           p-0 
           my-auto 
-          z-index-4 
           shadow-1 
           t-0
           ${sticky && !isHidden && "position-fixed"}
@@ -109,14 +108,14 @@ const Layout = ({ sticky, children }) => {
         style={style}
       >
         <BurgerMenu
-          dropdown={false}
+          dropdown={true}
           className={`d-md-none navbar-nav nav-pills`}
           data-spy="affix"
           open={open}
         >
           {children}
         </BurgerMenu>
-        <nav style={style} className="navbar w-100 bg-light px-4">
+        <nav style={style} className="navbar z-index-5 w-100 bg-light px-4">
           <NavBrand>
             <ReactLogo
               className="h-100"
