@@ -4,11 +4,24 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { Footer, Header, Loading } from "components";
-const About = lazy(() => import("pages/About"));
-const Contact = lazy(() => import("pages/Contact"));
-const Four = lazy(() => import("pages/404"));
-const Home = lazy(() => import("pages/Home"));
+import { links } from "data";
 import { store } from "src/redux";
+
+const About = lazy(() => import("pages/About"));
+const ComponentExamples = lazy(() => import("pages/ComponentExamples"));
+const Contact = lazy(() => import("pages/Contact"));
+const Home = lazy(() => import("pages/Home"));
+
+const {
+  internal:{
+    nav: {
+      about,
+      contact,
+      componentExamples,
+      home
+    }
+  }
+} = links
 
 export default () => (
   <HelmetProvider>
@@ -17,10 +30,10 @@ export default () => (
         <Header />
         <main>
           <Suspense fallback={<Loading />}>
-            <Route path="/404" exact component={Four} />
-            <Route path="/about" exact component={About} />
-            <Route path="/contact" exact component={Contact} />
-            <Route path="/" exact component={Home} /> {/* keep this one last */}
+            <Route path={about} exact component={About} />
+            <Route path={contact} exact component={Contact} />
+            <Route path={componentExamples} exact component={ComponentExamples} />
+            <Route path={home} exact component={Home} /> {/* keep this one last */}
           </Suspense>
         </main>
         <Footer />
