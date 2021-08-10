@@ -17,6 +17,7 @@ const Toggle = ({
             {options.map(op => (
                 <button
                     key={op}
+                    type="button"
                     className={`
                         toggle
                         rounded-4
