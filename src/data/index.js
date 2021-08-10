@@ -1,4 +1,5 @@
+import colorScheme from "./colorScheme";
 import links from "./links";
 import metadata from "./metadata";
 
-export { links, metadata };
+export { colorScheme, links, metadata };
