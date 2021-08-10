@@ -23,20 +23,12 @@ $spacing: (
     "5": $spacer * 3,
 );
 
-@each $edge, $edge-name in $edges {
-    @if $edge != "x" and $edge != "y" {
-        .m#{$edge}-auto {
-            margin-#{$edge-name}: auto;
-        }
-    }
-}
-
 @each $space-num, $space-value in $spacing {
     @each $box, $box-name in $box-model {
         @if $box != "b"{    //No border styles
-            .#{$box}-#{$space-num},   //TODO: Footnote #1
             .#{$box}-children-#{$space-num} > * {
                 #{$box-name}: $space-value !important;
+                @debug(#{$box-name}: $space-value);
             }
         }
     }
@@ -47,7 +39,6 @@ $spacing: (
     @each $edge, $edge-name in $edges {
         @each $box, $box-name in $box-model {
             @if $box != "b"{    //No border styles
-                .#{$box}#{$edge}-#{$space-num}, //mb-3, pl-4 ...   //TODO: Footnote #1
                 .#{$box}#{$edge}-children-#{$space-num} > *{    //mb-children-3, pl-children-4 ...
                     @if $edge == "x" {
                         #{$box-name}-left: $space-value !important;
@@ -71,7 +62,6 @@ $spacing: (
             @each $box, $box-name in $box-model {
                 @media (min-width: $bp-pixels) {    //only works if the screen is wider than this
                     @if $box != "b"{    //No border styles
-                        .#{$box}#{$edge}-#{$bp-name}-#{$space-num},  //mb-md-3, pl-sm-4 ...  //TODO: Footnote #1
                         .#{$box}#{$edge}-children-#{$bp-name}-#{$space-num} > * {    //mb-children-md-3, pl-children-sm-4 ...
                             @if $edge == "x" {
                                 #{"#{$box-name}-left"}: $space-value !important;
@@ -89,5 +79,3 @@ $spacing: (
         }
     }
 }
-
-//Footnote #1: This class shouldn't need to be defined, but for some reason, this isn't working without this class, find out why and get rid of this
