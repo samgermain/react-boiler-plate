@@ -10,10 +10,15 @@ const metadata = {
 };
 
 export default () => (
-  <div className="w-100 h-100 flex-center-row">
+  <div 
+    className="w-100 flex-center-col"
+    style={{
+      minHeight: "70vh"
+    }}
+  >
     <Head metadata={metadata} />
-    <div className="w-100 flex-center-row ">
-      <ReactLogo />
-    </div>
+    
+      <ReactLogo className="mx-auto " />
+    
   </div>
 );

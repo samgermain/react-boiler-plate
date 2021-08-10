@@ -10,7 +10,7 @@ const metadata = {
 };
 
 export default () => (
-  <div className="w-100 h-100 flex-center-row">
+  <div className="w-100 h-100 py-5 flex-center-row">
     <Head metadata={metadata} />
     <div className="flex-center-col col-md-7 col-11">
       <h1 className="mb-3">Send an Email</h1>

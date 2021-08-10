@@ -32,7 +32,6 @@ const PageLinks = ({ links, className = "" }) => {
               text-nowrap 
               nav-link 
               cursor-pointer
-              h4
               mx-3
               p-0
               ${active ? "active" : ""}
