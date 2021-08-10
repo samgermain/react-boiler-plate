@@ -16,24 +16,12 @@ $edges: (
 );
 
 $spacing: (
-    "p5": $spacer * 0.125,
-    1: $spacer * 0.25,
-    2: $spacer * 0.5,
-    3: $spacer,
-    4: $spacer * 1.5,
-    5: $spacer * 3,
+    "1": $spacer * 0.25,
+    "2": $spacer * 0.5,
+    "3": $spacer,
+    "4": $spacer * 1.5,
+    "5": $spacer * 3,
 );
-
-//TODO: Add ml, mr, mt, mb, pl, pr, pt, pb
-.m-p5 {
-    //stands for point5
-    margin: ($spacer * 0.125) !important;
-}
-
-.p-p5 {
-    //stands for point5
-    padding: ($spacer * 0.125) !important;
-}
 
 @each $edge, $edge-name in $edges {
     @if $edge != "x" and $edge != "y" {
@@ -43,20 +31,35 @@ $spacing: (
     }
 }
 
-@each $bp-name, $bp-pixels in $grid-breakpoints {
-    //looping through xs, sm, md, lg, xl and their pixel values
-
-    @media (min-width: $bp-pixels) {
-        //only works if the screen is wider than this
-
-        .m-#{$bp-name}-p5 {
-            //stands for point5
-            margin: ($spacer * 0.125) !important;
+@each $space-num, $space-value in $spacing {
+    @each $box, $box-name in $box-model {
+        @if $box != "b"{    //No border styles
+            .#{$box}-#{$space-num},   //TODO: Footnote #1
+            .#{$box}-children-#{$space-num} > * {
+                #{$box-name}: $space-value !important;
+            }
         }
+    }
+}
 
-        .p-#{$bp-name}-p5 {
-            //stands for point5
-            padding: ($spacer * 0.125) !important;
+@each $space-num, $space-value in $spacing {
+    //looping through xs, sm, md, lg, xl and their pixel values
+    @each $edge, $edge-name in $edges {
+        @each $box, $box-name in $box-model {
+            @if $box != "b"{    //No border styles
+                .#{$box}#{$edge}-#{$space-num}, //mb-3, pl-4 ...   //TODO: Footnote #1
+                .#{$box}#{$edge}-children-#{$space-num} > *{    //mb-children-3, pl-children-4 ...
+                    @if $edge == "x" {
+                        #{$box-name}-left: $space-value !important;
+                        #{$box-name}-right: $space-value !important;
+                    } @else if $edge == "y" {
+                        #{$box-name}-top: $space-value !important;
+                        #{$box-name}-bottom: $space-value !important;
+                    } @else {
+                        #{$box-name}-#{$edge-name}: $space-value !important;
+                    }
+                }
+            }
         }
     }
 }
@@ -64,22 +67,27 @@ $spacing: (
 @each $bp-name, $bp-pixels in $grid-breakpoints {
     //looping through xs, sm, md, lg, xl and their pixel values
     @each $edge, $edge-name in $edges {
-        @each $box, $box-name in $box-model {
-            @media (min-width: $bp-pixels) {
-                //only works if the screen is wider than this
-                .#{$box}#{edge}-#{$bp-name}-p5 {
-                    //stands for point5
-                    @if $edge == "x" {
-                        #{"#{$box-name}-left"}: map-get($spacing, "p5") !important;
-                        #{"#{$box-name}-right"}: map-get($spacing, "p5") !important;
-                    } @else if $edge == "y" {
-                        #{"#{$box-name}-top"}: map-get($spacing, "p5") !important;
-                        #{"#{$box-name}-bottom"}: map-get($spacing, "p5") !important;
-                    } @else {
-                        #{"#{$box-name}-#{$edge-name}"}: map-get($spacing, "p5") !important;
+        @each $space-num, $space-value in $spacing {
+            @each $box, $box-name in $box-model {
+                @media (min-width: $bp-pixels) {    //only works if the screen is wider than this
+                    @if $box != "b"{    //No border styles
+                        .#{$box}#{$edge}-#{$bp-name}-#{$space-num},  //mb-md-3, pl-sm-4 ...  //TODO: Footnote #1
+                        .#{$box}#{$edge}-children-#{$bp-name}-#{$space-num} > * {    //mb-children-md-3, pl-children-sm-4 ...
+                            @if $edge == "x" {
+                                #{"#{$box-name}-left"}: $space-value !important;
+                                #{"#{$box-name}-right"}: $space-value  !important;
+                            } @else if $edge == "y" {
+                                #{"#{$box-name}-top"}: $space-value !important;
+                                #{"#{$box-name}-bottom"}: $space-value !important;
+                            } @else {
+                                #{"#{$box-name}-#{$edge-name}"}: $space-value !important;
+                            }
+                        }
                     }
                 }
             }
         }
     }
 }
+
+//Footnote #1: This class shouldn't need to be defined, but for some reason, this isn't working without this class, find out why and get rid of this

@@ -1,21 +1,21 @@
 @import "./variables.scss";
 
 .rounded-1{
-    border-radius: map-get($spacing, 1);
+    border-radius: map-get($spacing, 1) !important;
 }
 
 .rounded-2{
-    border-radius: map-get($spacing, 2);
+    border-radius: map-get($spacing, 2) !important;
 }
 
 .rounded-3{
-    border-radius: map-get($spacing, 3);
+    border-radius: map-get($spacing, 3) !important;
 }
 
 .rounded-4{
-    border-radius: map-get($spacing, 4);
+    border-radius: map-get($spacing, 4) !important;
 }
 
 .rounded-5{
-    border-radius: map-get($spacing, 5);
+    border-radius: map-get($spacing, 5) !important;
 }

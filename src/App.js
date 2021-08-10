@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import "styles/style.scss";
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
