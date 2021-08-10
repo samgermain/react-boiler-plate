@@ -1,6 +1,7 @@
 {
   "name": "default",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "node convert && webpack serve --mode development --env development --config ./build_config/webpack.config.js --host 0.0.0.0",
     "build": "webpack --config ./build_config/webpack.prod.config.js",
@@ -32,6 +33,10 @@
       "last 1 safari version"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/samgermain/react-boiler-plate"
+  },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
@@ -49,8 +54,6 @@
     "cssnano": "^5.0.5",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
-    "html-webpack-template": "^6.2.0",
-    "image-webpack-loader": "^7.0.1",
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.1",
     "postcss": "^8.3.0",
@@ -77,6 +80,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@popperjs/core": "^2.9.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "axios": "^0.21.1",
@@ -87,6 +91,8 @@
     "emailjs-com": "^2.6.4",
     "extract-loader": "^5.1.0",
     "global": "^4.4.0",
+    "html-webpack-template": "^6.2.0",
+    "image-webpack-loader": "^7.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-device-detect": "^1.17.0",
