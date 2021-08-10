@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+@each $bp-name, $bp-pixels in $grid-breakpoints {
+    //looping through xs, sm, md, lg, xl and their pixel values    
+
+    .page-#{$bp-name} {
+        max-width: $bp-pixels;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

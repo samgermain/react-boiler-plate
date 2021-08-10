@@ -4,9 +4,11 @@
 @import "./bootstrap-changes.scss";
 @import "./d-unset.scss";
 @import "./flex-center.scss";
+@import "./fonts.scss";
 @import "./height.scss";
 @import "./list.scss";
 @import "./margin-padding.scss";
+@import "./page-width.scss";
 @import "./rounded.scss";
 @import "./shadows.scss";
 @import "./sides.scss";
@@ -42,4 +44,8 @@ body {
 .outline-none-hover {
   outline: none;
   box-shadow: none;
+}
+
+.text-white {
+  color: white;
 }
