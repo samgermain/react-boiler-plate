@@ -1,5 +1,11 @@
 import React from "react";
-import { Head, ReactLogo } from "components";
+import {
+  Dropdown,
+  Head,
+  PrimaryButton,
+  ReactLogo,
+  SearchBar,
+} from "components";
 
 const metadata = {
   description: "Home page",
@@ -13,7 +19,13 @@ export default () => (
   <div className="w-100 h-100 flex-center-row">
     <Head metadata={metadata} />
     <div className="w-100 flex-center-row ">
-      <ReactLogo />
+      <Dropdown>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </Dropdown>
+      <PrimaryButton>Button</PrimaryButton>
+      <SearchBar />
     </div>
   </div>
 );
