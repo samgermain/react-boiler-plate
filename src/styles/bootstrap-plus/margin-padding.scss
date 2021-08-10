@@ -28,7 +28,6 @@ $spacing: (
         @if $box != "b"{    //No border styles
             .#{$box}-children-#{$space-num} > * {
                 #{$box-name}: $space-value !important;
-                @debug(#{$box-name}: $space-value);
             }
         }
     }

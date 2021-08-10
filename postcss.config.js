@@ -1,11 +1,12 @@
 const purgecss = require("@fullhuman/postcss-purgecss");
 
-module.exports = ({env}) => ({
+module.exports = ({env}) => env === 'production' 
+? ({
   plugins: [
     //Doesn't work, all css removed
-    require('cssnano')({
-      preset: 'default',
-    }),
+    // require('cssnano')({
+    //   preset: 'default',
+    // }),
     // @ts-ignore
     env === 'production' && purgecss({
       content: ["./src/**/*.js"],
@@ -18,4 +19,9 @@ module.exports = ({env}) => ({
       },
     }),
   ],
-});
+}) 
+: {
+    plugins: {
+        'cssnano': {}
+    }
+};
