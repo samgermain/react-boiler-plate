@@ -35,13 +35,8 @@ body {
   transform: translateY(-50%);
 }
 
-.outline-none {
+.outline-none, .outline-none:focus {
   outline: none;
-}
-
-.outline-none-focus {
-  outline: none;
-  @extend .shadow-5;
 }
 
 .outline-none-hover {
