@@ -1,7 +1,14 @@
 import React from "react";
 
 export default ({ children, className = "", ...props }) => (
-  <select {...props} className={`rounded-3 ${className}`}>
+  <select 
+    className={`
+      rounded-3 
+      focus-2-visible
+      ${className}
+    `}
+    {...props} 
+  >
     {children}
   </select>
 );

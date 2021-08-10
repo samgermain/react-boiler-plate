@@ -2,7 +2,7 @@ import React from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default ({ children, className = "", onChange, ...props }) => (
+export default ({ className = "", onChange, ...props }) => (
   <div className={`position-relative flex-center-row ${className}`} {...props}>
     <FontAwesomeIcon
       style={{
@@ -13,7 +13,7 @@ export default ({ children, className = "", onChange, ...props }) => (
     />
     <input
       aria-label="search"
-      className="rounded-2 pr-5 w-100"
+      className="form-control rounded-3 pr-5 w-100"
       onChange={onChange}
     />
   </div>
