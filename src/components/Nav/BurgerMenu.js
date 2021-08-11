@@ -31,6 +31,7 @@ const BurgerMenu = ({
         flex-center-md-row 
         position-absolute 
         z-index-4
+        bg-light
         ${className}
       `}
     >
