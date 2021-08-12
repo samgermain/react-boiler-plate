@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.scss";
 import { Link } from "react-router-dom";
+import url from "url";
 
-import ReactLogo from "svg/react-icon.svg";
+import { camelCaseToSentenceCase } from "utils";
 import { useOnClickOutside } from "hooks";
+import ReactLogo from "svg/react-icon.svg";
+
 import Burger from "./Burger";
 import BurgerMenu from "./BurgerMenu";
-import url from "url";
 import ScrollLink from "./ScrollLink";
 
 const stickyHeight = 60; //Height of the sticky navbar
@@ -34,11 +36,11 @@ const PageLinks = ({ links, className = "" }) => {
               cursor-pointer
               mx-3
               p-0
-              ${active ? "active" : ""}
+              ${active ? "active text-dark bolded" : ""}
               ${className}
             `}
           >
-            {key}
+            {camelCaseToSentenceCase(key)}
           </Link>
         );
       })}
@@ -140,7 +142,7 @@ const Layout = ({ sticky, children }) => {
 };
 
 export const FooterNav = ({ links }) => (
-  <nav className="footer-nav nav nav-pills">
+  <nav className="footer-nav nav nav-pills flex-center-row">
     <PageLinks links={links} />
   </nav>
 );

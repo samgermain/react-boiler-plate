@@ -9,7 +9,7 @@ module.exports = {
   src: path.resolve(__dirname + "./../src"),
   styles: path.resolve(__dirname + "./../src/styles"),
   svg: path.resolve(__dirname + "./../src/assets/images/svg"),
-  util: path.resolve(__dirname + "./../src/util"),
+  utils: path.resolve(__dirname + "./../src/utils"),
   videos: path.resolve(__dirname + "./../src/assets/videos"),
   webp: path.resolve(__dirname + "./../src/assets/images/webp"),
 };

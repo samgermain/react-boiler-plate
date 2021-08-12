@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import "styles/style.scss";
+
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -29,7 +29,12 @@ export default () => (
     <Provider store={store}>
       <Router>
         <Header />
-        <main>
+        <main
+          // style={{
+          //   minHeight: "75vh"
+          // }}
+          className="w-100 h-100 flex-center-col"
+        >
           <Suspense fallback={<Loading />}>
             <Route path={about} exact component={About} />
             <Route path={contact} exact component={Contact} />
