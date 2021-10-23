@@ -14,8 +14,7 @@ import {
   faTwitter,
   faLinkedinIn,
   faRedditAlien,
-  faWhatsapp,
-  IconDefinition,
+  faWhatsapp
 } from "@fortawesome/free-brands-svg-icons";
 
 import { faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
@@ -29,7 +28,7 @@ const ShareButtons = ({
   className = "",
   ...props
 }) => {
-  const butCls = "m-md-1 m-p5";
+  const butCls = "m-md-1 m-p5 outline-none";
   const url = `${metadata.baseUrl}/${path}`;
 
   const FaIcon = ({ icon }) => {

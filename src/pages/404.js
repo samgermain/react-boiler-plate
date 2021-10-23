@@ -1,3 +1,4 @@
+//* Not used in this boiler plate
 import React from "react";
 import { Head } from "components";
 

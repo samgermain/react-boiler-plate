@@ -1,40 +1,69 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.scss";
 import { Link } from "react-router-dom";
+import url from "url";
 
-import ReactLogo from "svg/react-icon.svg";
+import { camelCaseToSentenceCase } from "utils";
 import { useOnClickOutside } from "hooks";
+import ReactLogo from "svg/react-icon.svg";
+
 import Burger from "./Burger";
 import BurgerMenu from "./BurgerMenu";
-//import ScrollLink from './ScrollLink';
+import ScrollLink from "./ScrollLink";
 
 const stickyHeight = 60; //Height of the sticky navbar
 
 const PageLinks = ({ links, className = "" }) => {
-  //TODO: const page = get the page page
-  //Then add this to classname ${text === page && 'active'}`
+  const [urlPath, setUrlPath] = useState("");
+
+  useEffect(() => {
+    setUrlPath(url.parse(window.location.href).pathname);
+  }, [window.location.href]);
 
   return (
     <>
-      {Object.keys(links).map((key) => (
-        <Link
-          to={links[key]}
-          key={key}
-          className={`
-            text-nowrap 
-            nav-link 
-            cursor-pointer
-            h4
-            mx-3
-            p-0
-            ${className}
-          `}
-        >
-          {key}
-        </Link>
-      ))}
+      {Object.keys(links).map((key) => {
+        const active =
+          urlPath == `/${key}` || (urlPath == "/" && key == "home");
+
+        return (
+          <Link
+            to={links[key]}
+            key={key}
+            className={`
+              text-nowrap 
+              nav-link 
+              cursor-pointer
+              mx-3
+              p-0
+              ${active ? "active text-dark bolded" : ""}
+              ${className}
+            `}
+          >
+            {camelCaseToSentenceCase(key)}
+          </Link>
+        );
+      })}
     </>
   );
+};
+
+const NavBrand = ({ children }) => {
+  const urlPath = url.parse(window.location.href).pathname;
+
+  if (urlPath === "/home" || urlPath == "/") {
+    return (
+      <ScrollLink to="root" className="cursor-pointer mx-3 p-0 h-100">
+        {children}
+      </ScrollLink>
+    );
+  } else {
+    return (
+      <Link to="/" className="navbar-brand p-0 h-100">
+        {children}
+      </Link>
+    );
+  }
 };
 
 const Layout = ({ sticky, children }) => {
@@ -49,6 +78,7 @@ const Layout = ({ sticky, children }) => {
   };
 
   useEffect(() => {
+    //Hides and reveals the sticky navbar
     hideBar();
     window.addEventListener("scroll", hideBar, { passive: true });
     return () => {
@@ -57,38 +87,9 @@ const Layout = ({ sticky, children }) => {
   }, []);
 
   const style = {
-    ...(sticky && styles.stickyNav),
-    ...(sticky && isHidden && styles.hide),
-    ...styles.navBar,
-  };
-
-  const NavBrand = () => {
-    const style = sticky
-      ? { ...styles.navBrand, ...styles.navBrandSticky }
-      : styles.navBrand;
-
-    //TODO: on home page scroll to top instead of linking there
-    // if (page === "home"){
-    //   return (
-    //     <ScrollLink
-    //       style={style}
-    //       to="root"
-    //       className="cursor-pointer mx-3 p-0"
-    //     >
-    //       <NavBrandImage />
-    //     </ScrollLink>
-    //   )
-    // }else{
-    return (
-      <Link style={style} to={"/"} className="navbar-brand h-100">
-        <ReactLogo
-          className="h-100"
-          title="React Logo"
-          alt="SVG of the react logo"
-        />
-      </Link>
-    );
-    // };
+    top: sticky && isHidden && -stickyHeight,
+    height: stickyHeight,
+    transition: ".3s",
   };
 
   useOnClickOutside(node, () => setOpen(false));
@@ -96,29 +97,39 @@ const Layout = ({ sticky, children }) => {
   return (
     <div ref={node}>
       <div
-        className={`shadow-1 ${sticky && !isHidden && "position-fixed"}`}
+        className={`
+          d-flex 
+          w-100 
+          p-0 
+          my-auto 
+          shadow-1 
+          t-0
+          ${sticky && !isHidden && "position-fixed"}
+        `}
         style={style}
       >
         <BurgerMenu
-          dropdown={false}
+          dropdown={true}
           className={`d-md-none navbar-nav nav-pills`}
           data-spy="affix"
           open={open}
         >
           {children}
         </BurgerMenu>
-        <nav
-          style={style}
-          className="navbar navbar-expand-md navbar-light bg-light px-4"
-        >
-          <NavBrand />
-          <nav
-            className={`d-md-flex d-none nav nav-pills`}
+        <nav style={style} className="navbar z-index-5 w-100 bg-light px-4">
+          <NavBrand>
+            <ReactLogo
+              className="h-100"
+              title="React Logo"
+              alt="SVG of the react logo"
+            />
+          </NavBrand>
+          <div
+            className={`d-md-flex d-none nav nav-pills mr-3 ml-auto`}
             data-spy="affix"
-            style={styles.nav}
           >
             {children}
-          </nav>
+          </div>
           <Burger
             className={`d-md-none my-auto`}
             open={open}
@@ -131,7 +142,7 @@ const Layout = ({ sticky, children }) => {
 };
 
 export const FooterNav = ({ links }) => (
-  <nav className="footer-nav">
+  <nav className="footer-nav nav nav-pills flex-center-row">
     <PageLinks links={links} />
   </nav>
 );
@@ -141,41 +152,3 @@ export default ({ links, sticky = "" }) => (
     <PageLinks links={links} />
   </Layout>
 );
-
-const styles = {
-  hide: {
-    top: -stickyHeight,
-  },
-  nav: {
-    marginLeft: "auto",
-    marginRight: 20,
-  },
-  navBar: {
-    display: "flex",
-    width: "100%",
-    padding: 0,
-    height: 80,
-    marginTop: "auto",
-    marginBottom: "auto",
-    zIndex: 4,
-  },
-  navBrand: {
-    width: 40,
-    marginTop: "2px",
-    marginBottom: "2px",
-  },
-  navBrandSticky: {
-    width: 40,
-    marginTop: "0",
-    marginBottom: "0",
-  },
-  navShadow: {
-    boxShadow: "0 10px 15px -12px rgba(0,0,0,0.25)",
-  },
-  stickyNav: {
-    height: stickyHeight,
-    top: 0,
-    zIndex: 4,
-    transition: ".3s",
-  },
-};

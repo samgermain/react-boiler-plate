@@ -1,7 +1,12 @@
-@import 'styles/bootstrap-plus/variables.scss';
+@import "styles/bootstrap-plus/variables.scss";
+
+#Carousel {
+  height: 450px;
+}
 
 /* Next & previous buttons */
-.prev-cont, .next-cont{
+.prev-cont,
+.next-cont {
   cursor: pointer;
   height: 100%;
   position: absolute !important;
@@ -13,7 +18,8 @@
   width: auto;
 }
 
-.prev, .next {
+.prev,
+.next {
   width: 100%;
   margin: 20px;
   padding: 16px;
@@ -33,7 +39,7 @@
   grid-area: d;
 }
 
-.slide-2{
+.slide-2 {
   grid-area: t;
 }
 
@@ -47,8 +53,9 @@
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev-cont:hover .prev, .next-cont:hover .next {
-  background-color: rgba(0,0,0,0.8);
+.prev-cont:hover .prev,
+.next-cont:hover .next {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* The dots/bullets/indicators */
@@ -63,17 +70,17 @@
   transition: background-color 0.6s ease;
 }
 
-.active-dot, .dot:hover {
+.active-dot,
+.dot:hover {
   background-color: #717171;
 }
 
-@media screen and (max-width: map-get($grid-breakpoints, 'md')) {
-
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
   .prev {
     margin-left: 0px;
-  }  
+  }
 
-  .slide-grid{
+  .slide-grid {
     width: 90%;
     grid-gap: 15px;
   }
@@ -81,5 +88,16 @@
   .next {
     margin-right: 0px;
   }
+}
 
+.carousel {
+  height: "80%";
+}
+
+.triple-carousel {
+  height: 80%;
+  display: grid;
+  grid-gap: 20;
+  grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+  grid-template-areas: "u u" "u u" "d t";
 }

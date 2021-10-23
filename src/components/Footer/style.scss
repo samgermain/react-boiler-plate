@@ -1,11 +1,32 @@
-@import 'styles/bootstrap-plus/variables.scss';
+@import "styles/bootstrap-plus/variables.scss";
 
-.social-icon{
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.tag {
+    height: 50px;
+}
+
+.social-icon {
     margin: 10px;
 }
 
-@media (max-width: map-get($grid-breakpoints, 'sm')){
-    .social-icon{
+.social-icons {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    right: 0;
+    top: 50%;
+}
+
+@media (max-width: map-get($grid-breakpoints, "sm")) {
+    .social-icon {
         margin: 5px;
+    }
+    .social-icons {
+        flex-direction: column;
     }
 }

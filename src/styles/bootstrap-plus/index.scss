@@ -1,47 +1,55 @@
-@import '../color-scheme.scss';
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
-@import './blockquote.scss';
-@import './bootstrap-changes.scss';
-@import './d-unset.scss';
-@import './flex-center.scss';
-@import './height.scss';
-@import './list.scss';
-@import './margin-padding.scss';
-@import './shadows.scss';
-@import './variables.scss';
-@import './z-index.scss';
+@import "../color-scheme.scss";
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "./blockquote.scss";
+@import "./bootstrap-changes.scss";
+@import "./d-unset.scss";
+@import "./flex-center.scss";
+@import "./fonts.scss";
+@import "./height.scss";
+@import "./list.scss";
+@import "./margin-padding.scss";
+@import "./page-width.scss";
+@import "./rounded.scss";
+@import "./shadows.scss";
+@import "./sides.scss";
+@import "./variables.scss";
+@import "./z-index.scss";
 
 html {
-	left: 0px;
-	width: 100%;
+  left: 0px;
+  width: 100%;
 }
 
-#root, body {
-	overflow-x: hidden;
+#root,
+body {
+  overflow-x: hidden;
 }
 
-.center-row{
+.center-row {
   @extend .row;
   justify-content: space-around;
   align-items: center;
 }
 
-.center-vertically{
+.center-vertically {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
-.outline-none {
+.outline-none, .outline-none:focus {
   outline: none;
 }
 
-.outline-none-focus {
+.outline-none-hover {
   outline: none;
-  @extend .shadow-5;
+  box-shadow: none;
 }
 
-.outline-none-hover{
-  outline: none;
-  box-shadow: none
+.text-white {
+  color: white;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

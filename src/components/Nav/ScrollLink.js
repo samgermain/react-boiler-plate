@@ -12,6 +12,7 @@ const ScrollLink = ({ to, children, ...props }) => {
       smooth={true}
       offset={scrollOffset}
       duration={500}
+      {...props}
     >
       {children}
     </Scroll.Link>

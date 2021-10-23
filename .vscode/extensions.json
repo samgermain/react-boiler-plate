@@ -1,9 +1,7 @@
 {
   "recommendations": [
-    "2gua.rainbow-brackets",
     "aaron-bond.better-comments",
-    "codezombiech.gitignore",
-    "coenraads.bracket-pair-colorizer-2",
+    "adamwalzer.scss-lint",
     "dbaeumer.vscode-eslint",
     "eamodio.gitlens",
     "ecmel.vscode-html-css",
@@ -13,23 +11,14 @@
     "kisstkondoros.vscode-gutter-preview",
     "meganrogge.template-string-converter",
     "mkaufman.htmlhint",
-    "msjsdiag.debugger-for-chrome",
-    "ms-vsliveshare.vsliveshare-pack",
-    "naumovs.color-highlight",
-    "oderwat.indent-rainbow",
-    "pkief.material-icon-theme",
-    "plievone.vscode-template-literal-editor",
-    "equinusocio.vsc-material-theme",
-    "sibiraj-s.vscode-scss-formatter",
     "mrmlnc.vscode-scss",
-    "adamwalzer.scss-lint",
+    "bradgashler.htmltagwrap",
+    "naumovs.color-highlight",
+    "plievone.vscode-template-literal-editor",
+    "sibiraj-s.vscode-scss-formatter",
     "jock.svg",
-    "stkb.rewrap",
-    "streetsidesoftware.code-spell-checker",
     "stylelint.vscode-stylelint",
     "tyriar.sort-lines",
-    "visualstudioexptteam.vscodeintellicode",
-    "vsls-contrib.codetour",
-    "webben.browserslist"
+    "visualstudioexptteam.vscodeintellicode"
   ]
 }
