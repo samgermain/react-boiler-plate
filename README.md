@@ -58,4 +58,4 @@ and then serve this build with
 
 ## Lighthouse
 
-[Lighthouse Score](https://imgur.com/a/SB0AzMk)
+![Lighthouse Score](https://imgur.com/a/SB0AzMk)
