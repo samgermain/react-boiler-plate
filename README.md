@@ -12,7 +12,7 @@ This starter has a basic setup for
 - `robots.txt`
 - `.babelrc`
 - `.vscode/extensions.json` (Recommended extensions)
-- redux
+- redux toolkit
 - an email form with **EmailJS**
 - image optimization and conversion to Webp using `sharp`
 - `bootstrap`
