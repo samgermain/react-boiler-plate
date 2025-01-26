@@ -3,7 +3,6 @@ import "./style.scss";
 
 import {
   faFacebookF,
-  faTwitter,
   faLinkedinIn,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
@@ -23,7 +22,7 @@ const Footer = ({ className = "", ...props }) => {
     </a>
   );
 
-  const { facebook, instagram, linkedIn, twitter } = links.external.social;
+  const { facebook, instagram, linkedIn } = links.external.social;
 
   return (
     <footer
@@ -66,11 +65,6 @@ const Footer = ({ className = "", ...props }) => {
             aria-label="LinkedIn social media page"
             link={linkedIn}
             icon={faLinkedinIn}
-          />
-          <SocialIcon
-            aria-label="Twitter social media page"
-            link={twitter}
-            icon={faTwitter}
           />
         </div>
       </div>
