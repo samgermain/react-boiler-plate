@@ -23,7 +23,6 @@ const BurgerMenu = ({
     <nav
       id="burgerMenu"
       style={style}
-      aria-hidden={!open}
       // hidden={!open}
       className={`
         shadow-2 
