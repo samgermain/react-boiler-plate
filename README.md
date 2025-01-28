@@ -18,6 +18,7 @@ This starter has a basic setup for
 - `bootstrap`
 - `react-router`
 - `react-helmet`
+- purgecss
 - page header
 - page footer
 - social media share buttons
