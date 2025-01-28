@@ -3,5 +3,5 @@ export default {
   themeColor: "#f5e6cc",
   author: "Sam Germain",
   authorDescription: "Blonde with glasses",
-  authorLink: "https://samgermain.com"
+  authorLink: "https://samgermain.netlify.app"
 };
