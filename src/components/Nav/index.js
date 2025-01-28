@@ -9,7 +9,6 @@ import ReactLogo from "svg/react-icon.svg";
 
 import Burger from "./Burger";
 import BurgerMenu from "./BurgerMenu";
-import ScrollLink from "./ScrollLink";
 
 const stickyHeight = 60; //Height of the sticky navbar
 
@@ -54,19 +53,11 @@ const PageLinks = ({ links, className = "" }) => {
 const NavBrand = ({ children }) => {
   const urlPath = url.parse(window.location.href).pathname;
 
-  if (urlPath === "/home" || urlPath == "/") {
-    return (
-      <ScrollLink to="root" className="cursor-pointer mx-3 p-0 h-100">
-        {children}
-      </ScrollLink>
-    );
-  } else {
-    return (
-      <Link to="/" className="navbar-brand p-0 h-100">
-        {children}
-      </Link>
-    );
-  }
+  return (
+    <Link to="/" className="navbar-brand p-0 h-100">
+      {children}
+    </Link>
+  );
 };
 
 const Layout = ({ sticky, children }) => {
