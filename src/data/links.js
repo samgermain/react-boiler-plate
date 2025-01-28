@@ -10,7 +10,6 @@ export default {
   external: {
     social: {
       facebook: "#",
-      twitter: "#",
       instagram: "#",
       linkedIn: "#",
     },

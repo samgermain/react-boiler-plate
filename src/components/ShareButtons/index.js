@@ -5,13 +5,11 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   RedditShareButton,
-  TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
 
 import {
   faFacebookF,
-  faTwitter,
   faLinkedinIn,
   faRedditAlien,
   faWhatsapp
@@ -44,15 +42,6 @@ const ShareButtons = ({
       <FacebookShareButton className={butCls} url={url}>
         <FaIcon icon={faFacebookF} />
       </FacebookShareButton>
-
-      <TwitterShareButton
-        className={butCls}
-        url={url}
-        title={title}
-        //hashtags={["Hash Tag 1", "Hash Tag 2"]}
-      >
-        <FaIcon icon={faTwitter} />
-      </TwitterShareButton>
 
       <LinkedinShareButton
         className={butCls}
