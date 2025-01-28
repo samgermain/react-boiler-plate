@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import url from "url";
 
 import { camelCaseToSentenceCase } from "utils";
@@ -13,18 +13,21 @@ import ScrollLink from "./ScrollLink";
 
 const stickyHeight = 60; //Height of the sticky navbar
 
+const replaceCaps = (s) => s.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+
 const PageLinks = ({ links, className = "" }) => {
   const [urlPath, setUrlPath] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
     setUrlPath(url.parse(window.location.href).pathname);
-  }, [window.location.href]);
+  }, [location.pathname]);
 
   return (
     <>
       {Object.keys(links).map((key) => {
         const active =
-          urlPath == `/${key}` || (urlPath == "/" && key == "home");
+          urlPath == `/${replaceCaps(key)}` || (urlPath == "/" && key == "home");
 
         return (
           <Link
