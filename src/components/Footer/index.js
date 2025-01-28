@@ -42,7 +42,9 @@ const Footer = ({ className = "", ...props }) => {
               webp={faceWebp}
               other={face}
               className="icon"
-              alt="Picture of Sam Germain"
+              alt="Sam Germain Emoji"
+              width={30}
+              height={30}
             />
           </a>
         </span>
